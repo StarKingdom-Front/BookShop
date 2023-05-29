@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+import NotFound from './pages/NotFound';
+import Home from './pages/Home';
+import SingleItem from './pages/SingleItem';
+
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
+
+  const [searchValue, setSearchValue] = useState('')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header searchValue={searchValue} setSearchValue={setSearchValue}/>
+          <main className="content" style={{background: '#1F1A2D'}}>
+          <Routes>
+              <Route path="/" element={<Home searchValue={searchValue}/>}/>
+              <Route path='/books/:id' element={<SingleItem />}/>
+              <Route path='*' element={<NotFound />}/>
+          </Routes>
+          </main>
+        <Footer />
+    </>
   );
 }
 
