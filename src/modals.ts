@@ -6,6 +6,7 @@ export interface IBook {
     img: string
     all: number
     author: string
+    price: number
 }
 
 export interface IBookData extends Omit<IBook, 'id'> {}

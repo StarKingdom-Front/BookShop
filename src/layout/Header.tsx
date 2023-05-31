@@ -8,10 +8,12 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 import SearchPanel from '../components/SearchPanel';
 
+import {useSelector} from 'react-redux'
 
-export default function Header({searchValue, setSearchValue} : {searchValue: any, setSearchValue: any}) {
 
-  
+export default function Header() {
+
+    const {items, totalPrice} = useSelector(state => state.basket)
 
   return (
     <>
@@ -42,7 +44,7 @@ export default function Header({searchValue, setSearchValue} : {searchValue: any
                             <SearchIcon />
                         </IconButton>
 
-                        <SearchPanel searchValue={searchValue} setSearchValue={setSearchValue}/>
+                        <SearchPanel />
                         
                     </Paper>
                 </div>
@@ -51,10 +53,12 @@ export default function Header({searchValue, setSearchValue} : {searchValue: any
                         <img src="/img/favorites.png" alt="favorite" />
                         <p>Избранное</p>
                     </div>
-                    <div className="header__item">
+                    <Link to='/basket' className="header__item">
                         <img src="/img/shop.png" alt="shop" />
                         <p>Корзина</p>
-                    </div>
+                        <div className='num'>{items.length}</div>
+                        <div className='money'>{totalPrice}</div>
+                    </Link>
                     <button className='btn'>Войти</button>
                 </div>
             </div>

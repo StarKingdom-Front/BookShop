@@ -28,7 +28,7 @@ export default function Home({searchValue} : {searchValue: any}) {
       }
 
       return false
-    }).map(book => (<CardItem key={book.id} book={book}/>))
+    }).map(book => (<CardItem key={book.id} {...book}/>))
 
 
   return (

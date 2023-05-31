@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import InputBase from '@mui/material/InputBase';
+import { SearchContext } from '../services/Context';
 
-export default function SearchPanel({searchValue, setSearchValue} : {searchValue: any, setSearchValue: any}) {
+export default function SearchPanel() {
+
+  const {searchValue, setSearchValue} = useContext(SearchContext)
+
   return (
     <div>
         <InputBase 

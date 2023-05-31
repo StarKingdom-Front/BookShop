@@ -61,6 +61,21 @@ h1 {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  position: relative;
+}
+
+.num {
+  position: absolute;
+  color: red;
+  right: 0px;
+  top: 0;
+}
+
+.money {
+  position: absolute;
+  color: red;
+  left: 0px;
+  top: 0;
 }
 
 .header__item:hover {
