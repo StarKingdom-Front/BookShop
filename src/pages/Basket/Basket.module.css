@@ -1,17 +1,17 @@
-.total-content {
+.total__content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 30px;
 }
 
-.total-content div {
+.total__content div {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.total-content div p {
+.total__content div p {
     margin-right: 10px;
 }
 

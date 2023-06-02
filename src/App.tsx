@@ -1,10 +1,10 @@
 import React, { createContext, useState } from 'react';
 
-import Header from './layout/Header';
-import Footer from './layout/Footer';
-import NotFound from './pages/NotFound';
-import Home from './pages/Home';
-import SingleItem from './pages/SingleItem';
+import Header from './layout/Header/Header';
+import Footer from './layout/Footer/Footer';
+import NotFound from './pages/NotFound/NotFound';
+import Home from './pages/Home/Home';
+import SingleItem from './pages/SingleItem/SingleItem';
 import Basket from './pages/Basket/Basket';
 
 import { Route, Routes } from 'react-router-dom';

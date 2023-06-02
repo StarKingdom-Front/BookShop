@@ -1,18 +1,27 @@
 import React from 'react'
+
+import styles from './CardItem.module.css'
+
 import Rating from '@mui/material/Rating';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import { Link } from 'react-router-dom';
 
 import {useDispatch, useSelector } from 'react-redux'
 
-import {addItem} from '../redux/slices/basketSlice'
+import {addItem} from '../../redux/slices/basketSlice'
+import { IBook } from '../../modals';
 
 
 
-export default function CardItem({id, title, price, author, img}) {
+
+const CardItem: React.FC<IBook> = ({id, title, price, author, img}) => {
 
     const dispatch = useDispatch()
-    const basketItem = useSelector(state => state.basket.items.find(obj => obj.id === id))
+
+    const basketItem = useSelector<{
+        state: any,
+        basket: any,
+    }>(state => state.basket.items.find((obj: { id: number; }) => obj.id === id))
 
     const addCount = basketItem ? basketItem.count : '0'
 
@@ -50,7 +59,7 @@ export default function CardItem({id, title, price, author, img}) {
 
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '11px'}}>
                 <button onClick={onClickAdd}
-                className='search-btn'>В корзину</button>
+                className={styles.search__btn}>В корзину</button>
                 {addCount > 0 && <i>{addCount}</i>}
                 <span style={{fontSize: '24px'}}>{price}₽</span>
             </div>
@@ -58,3 +67,5 @@ export default function CardItem({id, title, price, author, img}) {
     </div>
   )
 }
+
+export default CardItem

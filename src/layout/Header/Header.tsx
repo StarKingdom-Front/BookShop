@@ -1,17 +1,19 @@
-import React from 'react'
-
 import IconButton from '@mui/material/IconButton';
 
+import styles from './Header.module.css'
 
 import Paper from '@mui/material/Paper';
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
-import SearchPanel from '../components/SearchPanel';
+import SearchPanel from '../../components/SearchPanel/SearchPanel';
 
 import {useSelector} from 'react-redux'
 
+interface Header {
+    state: any
+}
 
-export default function Header() {
+const Header = () => {
 
     const {items, totalPrice} = useSelector(state => state.basket)
 
@@ -19,23 +21,14 @@ export default function Header() {
     <>
     <div style={{background: '#1F1A2D'}}>
         <div className='_container'>
-            <div className="header__body">
+            <div className={styles.header__body}>
                 <div style={{display: 'flex', flexDirection: 'row'}}> 
-                    <div className="logo_body">
+                    <div>
                         <Link to='/'><img src="/img/logo.png" alt="logo" /></Link>     
                     </div>
-                    <button className='catalog__btn' style={{
-                        padding: '12px 16px', 
-                        borderRadius: '5px',
-                        border: '0.5px solid #FFFFFF',
-                        marginLeft: '26px',
-                        position: 'relative',
-                        color: '#fff',
-                        background: '#1F1A2D',
-                        cursor: 'pointer',
-                    }}><span>Каталог</span></button>
+                    <button className={styles.catalog__btn}><span>Каталог</span></button>
                 </div>
-                <div className="search__panel" style={{maxWidth: '497px', width: '100%'}}>
+                <div className={styles.search__panel}>
                     <Paper
                         component="form"
                         sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: '100%', background: '#2B2244', }}
@@ -49,23 +42,23 @@ export default function Header() {
                     </Paper>
                 </div>
                 <div style={{display: 'flex'}}>
-                    <div className="header__item">
+                    <div className={styles.header__item}>
                         <img src="/img/favorites.png" alt="favorite" />
                         <p>Избранное</p>
                     </div>
-                    <Link to='/basket' className="header__item">
+                    <Link to='/basket' className={styles.header__item}>
                         <img src="/img/shop.png" alt="shop" />
                         <p>Корзина</p>
-                        <div className='num'>{items.length}</div>
-                        <div className='money'>{totalPrice}</div>
+                        <div className={styles.num}>{items.length}</div>
+                        <div className={styles.money}>{totalPrice}</div>
                     </Link>
                     <button className='btn'>Войти</button>
                 </div>
             </div>
-        </div>
-
-               
+        </div> 
     </div>
     </>
   )
 }
+
+export default Header;

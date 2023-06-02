@@ -1,5 +1,5 @@
 import React from 'react';
-import './basket.css'
+import styles from './Basket.module.css'
 
 import {useSelector, useDispatch} from 'react-redux'
 import BasketItem from '../../components/BasketItem/BasketItem';
@@ -16,12 +16,12 @@ const Basket = () => {
 
     const dispatch = useDispatch();
     const {items, totalPrice} = useSelector((state) => state.basket)
-    const totalCount = items.reduce((sum, item) => sum + item.count, 0)
+    const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0)
 
     return (
-        <div className='basket'>
+        <div className={styles.basket}>
             <div className="_container">
-                <div className='basket__body'>
+                <div className={styles.basket__body}>
                     <h2 style={{
                         fontSize: '32px',
                         lineHeight: '36px',
@@ -35,11 +35,13 @@ const Basket = () => {
                         cursor: 'pointer'
                     }}>Очистить корзину</p>
                     {
-                         items.map(item => <BasketItem key={item.id} {...item}/>)
+                         items.map(item => {
+                             return <BasketItem key={item.id} {...item} />;
+                         })
                     }
                    
 
-                    <div className="total-content">
+                    <div className={styles.total__content}>
                         <div>
                             <p>Всего товаров:</p>
                             <span>{totalCount}</span>
@@ -49,7 +51,7 @@ const Basket = () => {
                             <span>{totalPrice}</span>
                         </div>
                     </div>
-                    <div className="btns">
+                    <div className={styles.btns}>
                         <Link to='/' className='btn'>Назад</Link>
                     </div>
                 </div>

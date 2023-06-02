@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
 import InputBase from '@mui/material/InputBase';
-import { SearchContext } from '../services/Context';
+import { SearchContext } from '../../services/Context';
 
 export default function SearchPanel() {
 

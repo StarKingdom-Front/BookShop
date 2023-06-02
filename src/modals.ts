@@ -7,6 +7,7 @@ export interface IBook {
     all: number
     author: string
     price: number
+    count: number
 }
 
 export interface IBookData extends Omit<IBook, 'id'> {}

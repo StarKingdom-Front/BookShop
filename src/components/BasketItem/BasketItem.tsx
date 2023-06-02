@@ -1,10 +1,12 @@
 import React from 'react'
 
-import './BasketItem.css'
+import styles from './BasketItem.module.css'
 import { useDispatch } from 'react-redux';
 import { addItem, minusItem, removeItem} from '../../redux/slices/basketSlice';
 
-export default function BasketItem({ id, title, price, img, count }) 
+import { IBook } from '../../modals';
+
+export default function BasketItem({ id, title, price, img, count } : IBook) 
 {
 
     const dispatch = useDispatch();
@@ -28,7 +30,7 @@ export default function BasketItem({ id, title, price, img, count })
 
 
   return (
-    <div style={{margin: '20px 0px'}}className='basket__item'>
+    <div style={{margin: '20px 0px'}} className={styles.basket__item}>
         <img src={img} alt="" />
         <h3 style={{
             fontSize: '20px',

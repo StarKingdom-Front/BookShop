@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import CardItem from '../components/CardItem'
+import CardItem from '../../components/CardItem/CardItem'
 
-import { IBook, IBookData } from '../modals'
-import { services } from '../services/services'
-import FilterCategory from '../components/FilterCategory'
+import { IBook } from '../../modals'
+import { services } from '../../services/services'
+import FilterCategory from '../../components/FilterCategory/FilterCategory'
 
 export default function Home({searchValue} : {searchValue: any}) {
 

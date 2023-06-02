@@ -1,4 +1,4 @@
-import React from 'react'
+import styles from './FilterCategory.module.css'
 
 export default function FilterCategory({value, onClickCategory} : {onClickCategory: any, value: number}) {
 
@@ -10,17 +10,12 @@ export default function FilterCategory({value, onClickCategory} : {onClickCatego
     <div>
         <div style={{paddingBottom: '24px'}} className='_container'>
            <div>
-                <ul className='category' style={{display: 'flex', 
-                justifyContent: 'space-around', 
-                width: '100%', 
-                flexWrap: 'wrap', 
-                gap: '10px',
-                paddingLeft: '0'}}>
+                <ul className={styles.category}>
                     {
                         categories.map((item, index: number) => (
                             <li 
                             key={index}
-                            className={value === index ? 'search-active' : '' } 
+                            className={value === index ? 'search__active' : '' } 
                             onClick={() => onClickCategory(index)}>{item}
                             </li>
                     ))}
