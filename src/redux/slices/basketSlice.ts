@@ -1,15 +1,23 @@
-import {createSlice} from '@reduxjs/toolkit'
+import {PayloadAction, createSelector, createSlice} from '@reduxjs/toolkit'
+import { IBook } from '../../modals';
+import { RootState } from '../store';
 
-const initialState = {
+
+interface IBasketState {
+  totalPrice: number,
+  items: IBook[],
+}
+
+const initialState: IBasketState = {
   totalPrice: 0,
-  items: []
+  items: [],
 };
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem(state, action) {
+    addItem(state, action: PayloadAction<IBook>) {
       const findItem = state.items.find(obj => obj.id === action.payload.id);
       
       if(findItem) {
@@ -25,13 +33,12 @@ const cartSlice = createSlice({
       }, 0)
     },
 
-    minusItem(state, action) {
+    minusItem(state, action: PayloadAction<number>) {
       const findItem = state.items.find(obj => obj.id === action.payload);
   
-      if (findItem) {
+      if (findItem && findItem.count > 1) {
         findItem.count--
       }
-
     },
 
     removeItem(state, action) {
@@ -43,6 +50,14 @@ const cartSlice = createSlice({
     },
   }
 })
+
+const selectBasketState = (state: RootState) => state.basket
+
+export const selectBasketItems = createSelector(selectBasketState, state => state.items)
+
+export const selectBasketTotalPrice = createSelector(selectBasketState, state => state.totalPrice)
+
+export const selectBasketCount = createSelector(selectBasketItems, items => items.reduce((sum: number, item) => sum + item.count, 0))
 
 export const {addItem, removeItem, clearItem, minusItem} = cartSlice.actions
 

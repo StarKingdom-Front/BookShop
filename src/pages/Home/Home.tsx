@@ -13,9 +13,12 @@ export default function Home({searchValue} : {searchValue: any}) {
 
     useEffect(() => {
         const fetchData = async () => {
-          const data = await services.getAll(categoryId)
-    
-          setBooks(data)
+          try {
+            const data = await services.getAll(categoryId)
+            setBooks(data)
+          } catch(e: any) {
+            console.log(e?.message)
+          }
         }
     
         fetchData()

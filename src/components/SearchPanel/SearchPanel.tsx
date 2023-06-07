@@ -3,9 +3,15 @@ import React, { useContext } from 'react'
 import InputBase from '@mui/material/InputBase';
 import { SearchContext } from '../../services/Context';
 
+
+interface SearchPanel {
+  searchValue: (search: string) => void,
+  setSearchValue: void,
+}
+
 export default function SearchPanel() {
 
-  const {searchValue, setSearchValue} = useContext(SearchContext)
+  const {searchValue, setSearchValue} = useContext<SearchPanel>(SearchContext)
 
   return (
     <div>

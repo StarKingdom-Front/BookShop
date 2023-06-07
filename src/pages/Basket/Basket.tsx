@@ -3,8 +3,9 @@ import styles from './Basket.module.css'
 
 import {useSelector, useDispatch} from 'react-redux'
 import BasketItem from '../../components/BasketItem/BasketItem';
-import { clearItem } from '../../redux/slices/basketSlice';
+import { clearItem, selectBasketCount, selectBasketItems, selectBasketTotalPrice } from '../../redux/slices/basketSlice';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../redux/Hooks';
 
 const Basket = () => {
 
@@ -15,8 +16,11 @@ const Basket = () => {
     }
 
     const dispatch = useDispatch();
-    const {items, totalPrice} = useSelector((state) => state.basket)
-    const totalCount = items.reduce((sum: number, item: any) => sum + item.count, 0)
+    // const {items, totalPrice} = useSelector((state) => state.basket)
+
+    const items = useAppSelector(selectBasketItems)
+    const totalPrice = useAppSelector(selectBasketTotalPrice)
+    const totalCount = useAppSelector(selectBasketCount)
 
     return (
         <div className={styles.basket}>
@@ -35,7 +39,7 @@ const Basket = () => {
                         cursor: 'pointer'
                     }}>Очистить корзину</p>
                     {
-                         items.map(item => {
+                         items.map((item : any) => {
                              return <BasketItem key={item.id} {...item} />;
                          })
                     }

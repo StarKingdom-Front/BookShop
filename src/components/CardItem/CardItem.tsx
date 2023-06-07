@@ -12,7 +12,9 @@ import {addItem} from '../../redux/slices/basketSlice'
 import { IBook } from '../../modals';
 
 
-
+interface CardItem {
+    count: number,
+}
 
 const CardItem: React.FC<IBook> = ({id, title, price, author, img}) => {
 
