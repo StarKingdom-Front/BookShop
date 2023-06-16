@@ -5,7 +5,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import BasketItem from '../../components/BasketItem/BasketItem';
 import { clearItem, selectBasketCount, selectBasketItems, selectBasketTotalPrice } from '../../redux/slices/basketSlice';
 import { Link } from 'react-router-dom';
-import { useAppSelector } from '../../redux/Hooks';
+import { useAppSelector } from '../../redux/hooks';
 
 const Basket = () => {
 
