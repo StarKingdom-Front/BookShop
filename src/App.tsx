@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { useState } from 'react';
 
 import Header from './layout/Header/Header';
 import Footer from './layout/Footer/Footer';
@@ -7,8 +7,13 @@ import Home from './pages/Home/Home';
 import SingleItem from './pages/SingleItem/SingleItem';
 import Basket from './pages/Basket/Basket';
 
+import Form from './components/Form/Form'
+
 import { Route, Routes } from 'react-router-dom';
 import { SearchContext } from './services/Context';
+
+
+
 
 function App() {
 
@@ -16,6 +21,8 @@ function App() {
 
   return (
     <>
+
+   
       <SearchContext.Provider value={{searchValue, setSearchValue}}>
         <Header />
             <main className="content" style={{background: '#1F1A2D'}}>
@@ -26,6 +33,7 @@ function App() {
                 <Route path='*' element={<NotFound />}/>
             </Routes>
             </main>
+        <Form/>
         <Footer />
       </SearchContext.Provider>
     </>

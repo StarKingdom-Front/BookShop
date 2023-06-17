@@ -10,4 +10,22 @@ export interface IBook {
     count: number
 }
 
+export interface IAddress {
+    country: string
+    city: string
+    street: string
+    gouse: number
+}
+
+export interface IForm {
+    email:string
+    name:string
+    address: IAddress
+}
+
+export interface IOption{
+    value: string
+    label: string
+}
+
 export interface IBookData extends Omit<IBook, 'id'> {}
