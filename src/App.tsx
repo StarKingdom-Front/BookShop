@@ -11,6 +11,7 @@ import Form from './components/Form/Form'
 
 import { Route, Routes } from 'react-router-dom';
 import { SearchContext } from './services/Context';
+import FormSubmit from './pages/FormSubmit/FormSubmit';
 
 
 
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/" element={<Home searchValue={searchValue}/>}/>
                 <Route path='/books/:id' element={<SingleItem />}/>
                 <Route path='/basket' element={<Basket />}/>
+                <Route path='/form' element={<FormSubmit />}/>
                 <Route path='*' element={<NotFound />}/>
             </Routes>
             </main>

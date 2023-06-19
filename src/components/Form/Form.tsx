@@ -30,7 +30,7 @@ export default function Form() {
         reset,
         control
     } = useForm<IForm>({
-      mode: 'onChange'
+      mode: 'onSubmit'
     })
     
       const onSubmit:SubmitHandler<IForm> = (data) => {

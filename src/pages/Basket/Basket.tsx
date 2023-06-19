@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from './Basket.module.css'
 
-import {useSelector, useDispatch} from 'react-redux'
 import BasketItem from '../../components/BasketItem/BasketItem';
 import { clearItem, selectBasketCount, selectBasketItems, selectBasketTotalPrice } from '../../redux/slices/basketSlice';
 import { Link } from 'react-router-dom';
-import { useAppSelector } from '../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 const Basket = () => {
 
@@ -15,7 +14,7 @@ const Basket = () => {
         }
     }
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     // const {items, totalPrice} = useSelector((state) => state.basket)
 
     const items = useAppSelector(selectBasketItems)

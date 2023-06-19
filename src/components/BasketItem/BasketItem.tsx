@@ -5,16 +5,15 @@ import { useDispatch } from 'react-redux';
 import { addItem, minusItem, removeItem} from '../../redux/slices/basketSlice';
 
 import { IBook } from '../../modals';
+import { useAppDispatch } from '../../redux/hooks';
 
 export default function BasketItem({ id, title, price, img, count } : IBook) 
 {
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onClickPlus = () => {
-            dispatch(addItem({
-                id
-            })
+        dispatch(addItem(id)
         );
     }
 

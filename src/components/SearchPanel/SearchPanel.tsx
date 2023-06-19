@@ -6,7 +6,7 @@ import { SearchContext } from '../../services/Context';
 
 interface SearchPanel {
   searchValue: (search: string) => void,
-  setSearchValue: void,
+  setSearchValue: any,
 }
 
 export default function SearchPanel() {

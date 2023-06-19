@@ -5,6 +5,9 @@ import { IBook } from '../../modals'
 import { services } from '../../services/services'
 import FilterCategory from '../../components/FilterCategory/FilterCategory'
 
+import CreateItem from '../../components/CreateItem/CreateItem'
+import ModalCreate from '../../components/ModalCreate/ModalCreate'
+
 export default function Home({searchValue} : {searchValue: any}) {
 
     const [books, setBooks] = useState<IBook[]>([])
@@ -36,7 +39,8 @@ export default function Home({searchValue} : {searchValue: any}) {
 
   return (
     <div style={{background: '#1F1A2D'}}>
-      <FilterCategory value={categoryId} onClickCategory={(i: number) => setCategoryId(i)}/>   
+      <FilterCategory value={categoryId} onClickCategory={(i: number) => setCategoryId(i)}/>
+      <ModalCreate setBooks={setBooks}/>
         <div className="_container">
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '20px'}}>
 
@@ -47,6 +51,7 @@ export default function Home({searchValue} : {searchValue: any}) {
     
             </div>
         </div>
+      {/* <CreateItem /> */}
     </div>
   )
 }

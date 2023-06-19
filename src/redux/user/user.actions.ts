@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 
-const fetchUserById = (userId) => 
+const fetchUserById = (userId: any) => 
     new Promise((resolve) => {
         setTimeout(() => resolve({id: 1, name: 'Max'}), 1000)
 })

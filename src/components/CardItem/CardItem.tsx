@@ -10,6 +10,7 @@ import {useDispatch, useSelector } from 'react-redux'
 
 import {addItem} from '../../redux/slices/basketSlice'
 import { IBook } from '../../modals';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 
 interface CardItem {
@@ -18,12 +19,9 @@ interface CardItem {
 
 const CardItem: React.FC<IBook> = ({id, title, price, author, img}) => {
 
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
-    const basketItem = useSelector<{
-        state: any,
-        basket: any,
-    }>(state => state.basket.items.find((obj: { id: number; }) => obj.id === id))
+    const basketItem = useAppSelector(state => state.basket.items.find((obj: { id: number; }) => obj.id === id))
 
     const addCount = basketItem ? basketItem.count : '0'
 

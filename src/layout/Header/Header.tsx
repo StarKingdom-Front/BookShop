@@ -7,15 +7,12 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 import SearchPanel from '../../components/SearchPanel/SearchPanel';
 
-import {useSelector} from 'react-redux'
+import { useAppSelector } from '../../redux/hooks';
 
-interface Header {
-    state: any
-}
 
 const Header = () => {
 
-    const {items, totalPrice} = useSelector(state => state.basket)
+    const {items, totalPrice} = useAppSelector(state => state.basket)
 
   return (
     <>
@@ -52,7 +49,7 @@ const Header = () => {
                         <div className={styles.num}>{items.length}</div>
                         <div className={styles.money}>{totalPrice}</div>
                     </Link>
-                    <button className='btn'>Войти</button>
+                    <Link style={{height: '15px'}} to='/form'className='btn'>Войти</Link>
                 </div>
             </div>
         </div> 
