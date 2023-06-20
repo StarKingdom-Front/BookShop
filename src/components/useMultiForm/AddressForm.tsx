@@ -1,7 +1,7 @@
 import React from 'react'
 import FormWrapper from './FormWrapper'
 
-type AddressData = {
+interface AddressData {
     street: string
     city: string
     state: string
@@ -9,7 +9,7 @@ type AddressData = {
 }
 
 type AddressFormProps = AddressData & {
-    updateFields: (fields: Partial<AddressData>) => void
+    updateFields: any
 }
 
 export default function AddressForm({street,city,state,zip, updateFields} : AddressFormProps) {

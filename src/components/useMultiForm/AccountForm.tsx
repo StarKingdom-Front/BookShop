@@ -1,13 +1,13 @@
 import React from 'react'
 import FormWrapper from './FormWrapper'
 
-type AccountData = {
+interface AccountData {
     email: string
     password: string
 }
 
 type AddressFormProps = AccountData & {
-    updateFields: (fields: Partial<AccountData>) => void
+    updateFields: any
 }
 
 export default function AccountForm({email, password, updateFields} : AddressFormProps) {

@@ -1,14 +1,14 @@
 import React from 'react'
 import FormWrapper from './FormWrapper'
 
-type UserData = {
+interface UserData {
     firstName: string
     lastName: string
     age: string
 }
 
 type UserFormProps = UserData & {
-    updateFields: (fields: Partial<UserData>) => void
+    updateFields: any
 }
 
 export default function UserFrom({firstName, lastName, age, updateFields} : UserFormProps) {

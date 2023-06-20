@@ -6,8 +6,6 @@ import Rating from '@mui/material/Rating';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import { Link } from 'react-router-dom';
 
-import {useDispatch, useSelector } from 'react-redux'
-
 import {addItem} from '../../redux/slices/basketSlice'
 import { IBook } from '../../modals';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
@@ -43,8 +41,8 @@ const CardItem: React.FC<IBook> = ({id, title, price, author, img}) => {
                 display: 'flex',
                 borderRadius: '5px',
                 }}>
-        <div style={{marginRight: '8px'}}>
-            <Link to={`/books/${id}`}><img src={img} alt="png" /></Link>
+        <div style={{marginRight: '8px', width: '86px', height: '136px'}}>
+            <Link to={`/books/${id}`}><img style={{width: '86px', height: '136px'}} src={img} alt="png" /></Link>
         </div>
         <div style={{display: 'flex', flexDirection: 'column', width: '100%', justifyContent: 'space-between'}}>
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
