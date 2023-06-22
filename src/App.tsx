@@ -12,6 +12,9 @@ import Form from './components/Form/Form'
 import { Route, Routes } from 'react-router-dom';
 import { SearchContext } from './services/Context';
 import FormSubmit from './pages/FormSubmit/FormSubmit';
+import ButtonLang from './components/ButtonLang/ButtonLang';
+
+
 
 
 
@@ -20,12 +23,17 @@ function App() {
 
   const [searchValue, setSearchValue] = useState('')
 
+  
+
+
+
   return (
     <>
 
    
       <SearchContext.Provider value={{searchValue, setSearchValue}}>
         <Header />
+        <ButtonLang/>
             <main className="content" style={{background: '#1F1A2D'}}>
             <Routes>
                 <Route path="/" element={<Home searchValue={searchValue}/>}/>

@@ -28,7 +28,7 @@ const CardItem: React.FC<IBook> = ({id, title, price, author, img}) => {
             id, 
             title,
             price,
-            img
+            img,
         }
         dispatch(addItem(item))
     }

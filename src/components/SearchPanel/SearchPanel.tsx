@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 
 import InputBase from '@mui/material/InputBase';
 import { SearchContext } from '../../services/Context';
+import { useTranslation } from 'react-i18next';
 
 
 interface SearchPanel {
@@ -10,6 +11,8 @@ interface SearchPanel {
 }
 
 export default function SearchPanel() {
+
+  const {t} = useTranslation();
 
   const {searchValue, setSearchValue} = useContext<SearchPanel>(SearchContext)
 
@@ -22,7 +25,7 @@ export default function SearchPanel() {
 
         className='hide'
             sx={{ ml: 1, flex: 1, color: '#8E8E93', }}
-            placeholder="Поиск"
+            placeholder={t('search')}
             inputProps={{ 'aria-label': 'search google maps' }}
         />
     </div>

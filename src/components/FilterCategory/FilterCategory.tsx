@@ -1,10 +1,14 @@
+import { useTranslation } from 'react-i18next';
 import styles from './FilterCategory.module.css'
 
 export default function FilterCategory({value, onClickCategory} : {onClickCategory: any, value: number}) {
 
-    const categories: string[] = [
-        'Все', 'Фэнтези', 'Детективы', 'Боевики', 'Проза', 'Бизнес'
-    ]
+    const {t} = useTranslation();
+
+    const categories: string[] = [`${t('all')}`, `${t('fantasy')}`, 
+                                `${t('detectives')}`, `${t('militants')}`, 
+                                `${t('prose')}`,`${t('business')}`
+                            ]
 
   return (
     <div>

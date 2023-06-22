@@ -8,9 +8,12 @@ import { Link } from 'react-router-dom';
 import SearchPanel from '../../components/SearchPanel/SearchPanel';
 
 import { useAppSelector } from '../../redux/hooks';
+import { useTranslation } from 'react-i18next';
 
 
 const Header = () => {
+
+    const {t} = useTranslation();
 
     const {items, totalPrice} = useAppSelector(state => state.basket)
 
@@ -23,7 +26,7 @@ const Header = () => {
                     <div>
                         <Link to='/'><img src="/img/logo.png" alt="logo" /></Link>     
                     </div>
-                    <button className={styles.catalog__btn}><span>Каталог</span></button>
+                    <button className={styles.catalog__btn}><span>{t('catalog')}</span></button>
                 </div>
                 <div className={styles.search__panel}>
                     <Paper
@@ -41,15 +44,15 @@ const Header = () => {
                 <div style={{display: 'flex'}}>
                     <div className={styles.header__item}>
                         <img src="/img/favorites.png" alt="favorite" />
-                        <p>Избранное</p>
+                        <p>{t('favorites')}</p>
                     </div>
                     <Link to='/basket' className={styles.header__item}>
                         <img src="/img/shop.png" alt="shop" />
-                        <p>Корзина</p>
+                        <p>{t('basket')}</p>
                         <div className={styles.num}>{items.length}</div>
                         <div className={styles.money}>{totalPrice}</div>
                     </Link>
-                    <Link style={{height: '15px'}} to='/form'className='btn'>Войти</Link>
+                    <Link style={{height: '15px'}} to='/form'className='btn'>{t('change to')}</Link>
                 </div>
             </div>
         </div> 
