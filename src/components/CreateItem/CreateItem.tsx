@@ -31,20 +31,6 @@ export default function CreateItem({setBooks, handleClose} : ICreateBook) {
         handleClose()
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
   return (
     <div>
         <form className={style.form__body}>

@@ -1,0 +1,58 @@
+.form__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0px;
+}
+
+.form__body h2 {
+    font-size: 30px;
+    line-height: 110%;
+}
+
+.form__body form button {
+    margin-top: 15px;
+}
+
+.form__body form section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form__body form section input {
+    border-radius: 5px;
+    padding-left: 20px;
+    height: 30px;
+    border: 1px solid white;
+    background: rgb(31, 26, 45);
+    color: white;
+}
+
+.check {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.btn {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    color: white;
+    border: 1px solid white;
+    background-color: rgb(31, 26, 45);
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+.btn:hover {
+    color: rgb(31, 26, 45);
+    border: 1px solid rgb(31, 26, 45);
+    background-color: white;
+}
+
+.btn:disabled {
+    background-color: rgba(203, 179, 179, 0.279);
+}

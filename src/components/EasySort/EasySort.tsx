@@ -4,6 +4,7 @@ import SortableList, { SortableItem } from 'react-easy-sort';
 
 interface ISort {
     src: string
+    id: number
 }
 
 export default function EasySort() {
@@ -26,11 +27,11 @@ export default function EasySort() {
         ]);
     };
 
-    const removeItem = () => {
-        setItems([...items].filter(t => t.id == !id))
-    }
+    // const removeItem = () => {
+    //     setItems([...items].filter((t: any) => t.id === !id))
+    // }
 
-const onSortEnd = (iOld, iNew) => {
+const onSortEnd = (iOld: any, iNew: any) => {
   setItems(([...items]) => (
     [ items[iOld], items[iNew] ] = [ items[iNew], items[iOld] ],
     items
@@ -47,7 +48,7 @@ const onSortEnd = (iOld, iNew) => {
             {items.map(n => (
                 <SortableItem key={n.id}>
                     <div>
-                        <button removeItem={removeItem}>УДАЛИТЬ</button>
+                        <button>УДАЛИТЬ</button>
                         <img src={n.src} />
                     </div>
                 </SortableItem>

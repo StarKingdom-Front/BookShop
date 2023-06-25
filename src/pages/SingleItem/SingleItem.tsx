@@ -18,9 +18,13 @@ export default function SingleItem() {
         if(!id) return
 
         const fetchData = async () => {
-          const data = await services.getById(id)
-    
-          setBook(data)
+            
+          try {
+            const data = await services.getById(id)
+            setBook(data)
+          } catch {
+            console.log('error id')
+          }
         }
     
         fetchData()

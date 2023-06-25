@@ -44,15 +44,15 @@ const Header = () => {
                 <div style={{display: 'flex'}}>
                     <div className={styles.header__item}>
                         <img src="/img/favorites.png" alt="favorite" />
-                        <p>{t('favorites')}</p>
+                        <p className={styles.btn__class}>{t('favorites')}</p>
                     </div>
                     <Link to='/basket' className={styles.header__item}>
                         <img src="/img/shop.png" alt="shop" />
-                        <p>{t('basket')}</p>
+                        <p className={styles.btn__class}>{t('basket')}</p>
                         <div className={styles.num}>{items.length}</div>
                         <div className={styles.money}>{totalPrice}</div>
                     </Link>
-                    <Link style={{height: '15px'}} to='/form'className='btn'>{t('change to')}</Link>
+                    <Link style={{height: '15px', textDecoration: 'none'}} to='/form'className='btn'>{t('change to')}</Link>
                 </div>
             </div>
         </div> 

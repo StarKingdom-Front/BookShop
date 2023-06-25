@@ -5,7 +5,6 @@ import { IBook } from '../../modals'
 import { services } from '../../services/services'
 import FilterCategory from '../../components/FilterCategory/FilterCategory'
 
-import CreateItem from '../../components/CreateItem/CreateItem'
 import ModalCreate from '../../components/ModalCreate/ModalCreate'
 
 export default function Home({searchValue} : {searchValue: any}) {
@@ -20,7 +19,7 @@ export default function Home({searchValue} : {searchValue: any}) {
             const data = await services.getAll(categoryId)
             setBooks(data)
           } catch(e: any) {
-            console.log(e?.message)
+            console.log('error')
           }
         }
     

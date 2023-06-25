@@ -11,11 +11,16 @@ import { IBook } from '../../modals';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 
-interface CardItem {
+type CardItemProps = {
     count: number,
+    id: number,
+    price: number,
+    title: string,
+    author: string,
+    img: string
 }
 
-const CardItem: React.FC<IBook> = ({id, title, price, author, img}) => {
+const CardItem: React.FC<CardItemProps> = ({id, title, price, author, img}) => {
 
     const dispatch = useAppDispatch()
 
@@ -58,7 +63,7 @@ const CardItem: React.FC<IBook> = ({id, title, price, author, img}) => {
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '11px'}}>
                 <button onClick={onClickAdd}
                 className={styles.search__btn}>В корзину</button>
-                {addCount > 0 && <i>{addCount}</i>}
+                {+addCount > 0 && <i>{addCount}</i>}
                 <span style={{fontSize: '24px'}}>{price}₽</span>
             </div>
         </div>

@@ -67,3 +67,26 @@ h1 {
    width: 100%;
 }
 
+.react-select__control  {
+  height: 30px !important;
+  border: 1px solid white !important;
+  background: rgb(31, 26, 45) !important;
+  color: white !important;
+}
+
+.react-select__menu {
+  border: 1px solid white !important;
+  background: rgb(31, 26, 45) !important;
+  color: white !important;
+  cursor: pointer !important;
+}
+
+.react-select__option:hover {
+  color: rgb(31, 26, 45) !important;
+  cursor: pointer !important;
+}
+
+.react-select__placeholder, .react-select__single-value, .react-select__input-container {
+  color: rgba(255, 255, 255, 0.625) !important;
+  cursor: pointer !important;
+}

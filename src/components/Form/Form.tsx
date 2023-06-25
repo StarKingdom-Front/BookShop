@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './Form.module.css'
 
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
@@ -22,6 +22,7 @@ const options:IOption[] = [{
   const getValue = (value:string) => 
     value ? options.find((option) => option.value === value) : ''
 
+  
 export default function Form() {
 
     const {register, 
@@ -68,6 +69,7 @@ export default function Form() {
            {errors.email && <div style={{color:'red'}}>{errors.email.message}</div>}
 
           <Controller 
+
             control={control}
             name='address.country'
             rules={{
@@ -77,6 +79,8 @@ export default function Form() {
             render={({field: {onChange, value}, fieldState: {error} }) => (
               <div>
                 <ReactSelect
+                    className="react-select-container"
+                    classNamePrefix="react-select"
                     placeholder='Countries'
                     options={options}
                     value={getValue(value)}
@@ -91,7 +95,7 @@ export default function Form() {
             
 
           <div>
-            <button>Send</button>
+              <button className={style.form__btn}>Send</button>
           </div>
       </form>
 

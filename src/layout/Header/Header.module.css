@@ -67,3 +67,9 @@
       padding: 20px;
     }
 }
+
+.btn__class {
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+}

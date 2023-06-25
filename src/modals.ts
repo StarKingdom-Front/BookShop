@@ -20,6 +20,9 @@ export interface IAddress {
 export interface IForm {
     email:string
     name:string
+    lastName: string
+    a1: string
+    a2: string
     address: IAddress
 }
 

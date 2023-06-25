@@ -13,19 +13,11 @@ import { Route, Routes } from 'react-router-dom';
 import { SearchContext } from './services/Context';
 import FormSubmit from './pages/FormSubmit/FormSubmit';
 import ButtonLang from './components/ButtonLang/ButtonLang';
-
-
-
-
-
+import FormMulti from './components/FormHookField/FormMulti';
 
 function App() {
 
   const [searchValue, setSearchValue] = useState('')
-
-  
-
-
 
   return (
     <>
@@ -43,6 +35,7 @@ function App() {
                 <Route path='*' element={<NotFound />}/>
             </Routes>
             </main>
+            <FormMulti/>
         <Form/>
         <Footer />
       </SearchContext.Provider>
