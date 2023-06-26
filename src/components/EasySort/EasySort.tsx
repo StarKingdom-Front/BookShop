@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import SortableList, { SortableItem } from 'react-easy-sort';
+import style from './EasySort.module.css'
 
 
 interface ISort {
@@ -27,9 +28,11 @@ export default function EasySort() {
         ]);
     };
 
-    // const removeItem = () => {
-    //     setItems([...items].filter((t: any) => t.id === !id))
-    // }
+
+    const removeItem = (id: any) => {
+        const p = setItems([...items].filter((t: any) => t.id !== id))
+        console.log(p)
+    }
 
 const onSortEnd = (iOld: any, iNew: any) => {
   setItems(([...items]) => (
@@ -39,21 +42,23 @@ const onSortEnd = (iOld: any, iNew: any) => {
 };
 
   return (
-    <div>
-        <div>
-            <input value={src} onChange={onChange} />
-                <button onClick={addSrc}>add</button>
+    <div className='_container'>
+        <div className={style.body}>
+            <div className={style.form_input}>
+                <input value={src} onChange={onChange} />
+                <button className='btn' onClick={addSrc}>add</button>
             </div>
-            <SortableList onSortEnd={onSortEnd}>
+            <SortableList className={style.card__body} onSortEnd={onSortEnd}>
             {items.map(n => (
                 <SortableItem key={n.id}>
-                    <div>
-                        <button>УДАЛИТЬ</button>
+                    <div className={style.card__item}>
+                        <button onClick={() => removeItem(n.id)}>УДАЛИТЬ</button>
                         <img src={n.src} />
                     </div>
                 </SortableItem>
             ))}
             </SortableList>
+        </div>
     </div>
   )
 }

@@ -14,6 +14,7 @@ import { SearchContext } from './services/Context';
 import FormSubmit from './pages/FormSubmit/FormSubmit';
 import ButtonLang from './components/ButtonLang/ButtonLang';
 import FormMulti from './components/FormHookField/FormMulti';
+import EasySort from './components/EasySort/EasySort';
 
 function App() {
 
@@ -35,7 +36,8 @@ function App() {
                 <Route path='*' element={<NotFound />}/>
             </Routes>
             </main>
-            <FormMulti/>
+        <EasySort/>
+        <FormMulti/>
         <Form/>
         <Footer />
       </SearchContext.Provider>

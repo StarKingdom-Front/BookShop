@@ -1,0 +1,47 @@
+.card__body {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.card__item img{
+    width: 80px;
+    height: 150px;
+}
+
+.card__item {
+    position: relative;
+}
+
+.card__item button {
+    position: absolute;
+    top: 0;
+}
+
+.form_input {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.form_input input {
+    border-radius: 5px;
+    padding-left: 20px;
+    height: 30px;
+    border: 1px solid white;
+    background: rgb(31, 26, 45);
+    color: white;
+    max-width: 250px;
+    width: 100%;
+}
+
+.body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { useTranslation } from 'react-i18next';
-import { Button } from '@mui/material';
+import { Button, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import uselocalstorage from '../../hooks/uselocalstorage';
 import i18n from '../../i18';
 
@@ -21,11 +21,33 @@ const {t} = useTranslation();
     }
   }
 
+
+
+  const [lang, setAge] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setAge(event.target.value as string);
+  };
+
   return (
-    <div style={{width: '100%', display: 'flex', justifyContent: 'center'}}>
-        <Button className='_container' variant="contained" onClick={handleLang}> 
-          {language === 'ru' ? t('english') : t('russian')}
-        </Button>
-    </div>
+    <>
+
+      <div className='_container' style={{width: '200px'}}>
+      <FormControl fullWidth>
+        <InputLabel style={{color: 'white'}} id="demo-simple-select-label">lang</InputLabel>
+        <Select style={{color: 'white', border: 'white'}}
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={lang}
+          label="lang"
+          onChange={handleChange}
+          onClick={handleLang}
+        >
+          <MenuItem  value={10}>russian</MenuItem>
+          <MenuItem value={20}>english</MenuItem>
+        </Select>
+      </FormControl>
+      </div>
+    </>
   )
 }

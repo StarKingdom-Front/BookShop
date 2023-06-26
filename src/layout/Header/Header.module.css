@@ -35,6 +35,7 @@
     align-items: center;
     cursor: pointer;
     position: relative;
+    text-decoration: none;
 }
 
 .header__item:hover {
