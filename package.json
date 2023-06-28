@@ -19,9 +19,12 @@
     "@types/react": "^18.2.7",
     "@types/react-dom": "^18.2.4",
     "axios": "^1.4.0",
+    "concurrently": "^8.2.0",
+    "firebase": "^9.23.0",
     "framer-motion": "^10.12.17",
     "i18next": "^23.2.3",
     "json-server": "^0.17.3",
+    "json-server-auth": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
@@ -39,6 +42,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "json-server --watch db.json --port 4200",
+    "users": "json-server-auth --watch auth.json --port 8080",
+    "dev": "concurrently \"npm run start\" \"npm run server\" \"npm run users\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

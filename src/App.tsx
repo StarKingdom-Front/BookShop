@@ -15,6 +15,8 @@ import FormSubmit from './pages/FormSubmit/FormSubmit';
 import ButtonLang from './components/ButtonLang/ButtonLang';
 import FormMulti from './components/FormHookField/FormMulti';
 import EasySort from './components/EasySort/EasySort';
+import Register from './components/Auth/Register';
+import Login from './components/Auth/Login';
 
 function App() {
 
@@ -33,6 +35,10 @@ function App() {
                 <Route path='/books/:id' element={<SingleItem />}/>
                 <Route path='/basket' element={<Basket />}/>
                 <Route path='/form' element={<FormSubmit />}/>
+
+                <Route path='/register' element={<Register />} />
+                <Route path='/login' element={<Login />} />
+                
                 <Route path='*' element={<NotFound />}/>
             </Routes>
             </main>
