@@ -17,10 +17,29 @@ import FormMulti from './components/FormHookField/FormMulti';
 import EasySort from './components/EasySort/EasySort';
 import Register from './components/Auth/Register';
 import Login from './components/Auth/Login';
+import Map from './components/Map/Map';
+import { useJsApiLoader } from '@react-google-maps/api';
+
+const center = [
+  { lat: 52.425039638689526, lng: 30.96122102539123 },
+  { lat: 52.43462255921098, lng: 30.977666741641563 },
+  { lat: 52.426818070043204, lng: 30.986335173359727 },
+];
+
+const API_KEY_MAP = process.env.REACT_APP_API_KEY_MAP
+console.log(API_KEY_MAP)
+
+const libraries = ['places']
 
 function App() {
 
   const [searchValue, setSearchValue] = useState('')
+
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: API_KEY_MAP,
+    libraries,
+  })
 
   return (
     <>
@@ -42,6 +61,7 @@ function App() {
                 <Route path='*' element={<NotFound />}/>
             </Routes>
             </main>
+            {isLoaded ? <Map center={center}/> : <h2>loading map</h2>}
         <EasySort/>
         <FormMulti/>
         <Form/>

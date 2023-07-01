@@ -27,14 +27,16 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>Login</h1>
-      
-      <FormUser title="sign in" handleClick={handleLogin}/>
-      
-      <p>
-        Or <Link to='/register'>Register</Link>
-      </p>
+    <div className='_container' >
+      <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <h1>Login</h1>
+        
+        <FormUser title="sign in" handleClick={handleLogin}/>
+        
+        <p>
+          Or <Link to='/register'>Register</Link>
+        </p>
+      </div>
     </div>
   )
 }

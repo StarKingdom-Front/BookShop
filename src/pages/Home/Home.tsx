@@ -6,12 +6,19 @@ import { services } from '../../services/services'
 import FilterCategory from '../../components/FilterCategory/FilterCategory'
 
 import ModalCreate from '../../components/ModalCreate/ModalCreate'
+import { useAuth } from '../../redux/use-auth'
+import { useAppDispatch } from '../../redux/hooks'
+import { Link } from 'react-router-dom'
+import { removeUser } from '../../redux/slices/userSlice'
 
 export default function Home({searchValue} : {searchValue: any}) {
 
     const [books, setBooks] = useState<IBook[]>([])
 
     const [categoryId, setCategoryId] = useState(0)
+
+    const {isAuth, email} = useAuth();
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,6 +45,12 @@ export default function Home({searchValue} : {searchValue: any}) {
 
   return (
     <div style={{background: '#1F1A2D'}}>
+      <div className='_container' style={{display:'flex',width: '100%', alignItems: 'center'}}>
+        <Link style={{maxWidth: '200px', width: '100%', marginBottom: '15px', height: '15px', textDecoration: 'none'}} onClick={() => dispatch(removeUser)} 
+            to='/register'className='btn'>
+                {isAuth ? <p>Log out from {email}</p> : <p>Register</p>}
+        </Link>
+      </div>
       <FilterCategory value={categoryId} onClickCategory={(i: number) => setCategoryId(i)}/>
       <ModalCreate setBooks={setBooks}/>
         <div className="_container">
@@ -50,7 +63,6 @@ export default function Home({searchValue} : {searchValue: any}) {
     
             </div>
         </div>
-      {/* <CreateItem /> */}
     </div>
   )
 }

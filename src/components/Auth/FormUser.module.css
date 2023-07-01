@@ -1,0 +1,22 @@
+.body {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form__input {
+    gap: 15px;
+    display: flex;
+}
+
+.form__input input {
+    border-radius: 5px;
+    padding-left: 20px;
+    height: 30px;
+    border: 1px solid white;
+    background: rgb(31, 26, 45);
+    color: white;
+}

@@ -25,16 +25,18 @@ export default function Register() {
     .catch(console.error)
   }
   return (
-    <div>
-      <h1>Register</h1>
+    <div className='_container'>
+      <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <h1>Register</h1>
 
-      <FormUser
-        title="register"
-        handleClick={handleRegister}
-      />
-      <p>
-        Or <Link to='/login'>Login</Link>
-      </p>
+        <FormUser
+          title="register"
+          handleClick={handleRegister}
+        />
+        <p>
+          Or <Link to='/login'>Login</Link>
+        </p>
+      </div>
     </div>
   )
 }

@@ -7,16 +7,12 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 import SearchPanel from '../../components/SearchPanel/SearchPanel';
 
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import {  useAppSelector } from '../../redux/hooks';
 import { useTranslation } from 'react-i18next';
 
-import {useAuth} from '../../redux/use-auth'
 import { removeUser } from '../../redux/slices/userSlice';
 
 const Header = () => {
-
-    const {isAuth, email} = useAuth();
-    const dispatch = useAppDispatch()
 
     const {t} = useTranslation();
 
@@ -58,11 +54,6 @@ const Header = () => {
                         <div className={styles.money}>{totalPrice}</div>
                     </Link>
                     <Link style={{height: '15px', textDecoration: 'none'}} to='/form'className='btn'>{t('change to')}</Link>
-                    <Link onClick={() => dispatch(removeUser)} 
-                    style={{height: '15px', textDecoration: 'none'}} 
-                    to='/register'className='btn'>
-                        {isAuth ? <p>Log out from {email}</p> : <p>Register</p>}
-                    </Link>
                 </div>
             </div>
         </div> 
