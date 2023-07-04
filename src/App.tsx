@@ -26,10 +26,11 @@ const center = [
   { lat: 52.426818070043204, lng: 30.986335173359727 },
 ];
 
-const API_KEY_MAP = process.env.REACT_APP_API_KEY_MAP
+const API_KEY_MAP: string = process.env.REACT_APP_API_KEY_MAP!
 console.log(API_KEY_MAP)
 
-const libraries = ['places']
+const libraries: any = ['places']
+
 
 function App() {
 
@@ -39,7 +40,7 @@ function App() {
     id: 'google-map-script',
     googleMapsApiKey: API_KEY_MAP,
     libraries,
-  })
+  } )
 
   return (
     <>
@@ -64,7 +65,7 @@ function App() {
             {isLoaded ? <Map center={center}/> : <h2>loading map</h2>}
         <EasySort/>
         <FormMulti/>
-        <Form/>
+        <Form />
         <Footer />
       </SearchContext.Provider>
     </>
